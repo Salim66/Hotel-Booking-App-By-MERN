@@ -3,6 +3,10 @@ import dotenv from 'dotenv';
 import colors from 'colors';
 import connectDB from './config/db.js';
 import mongoose from 'mongoose';
+import authRouter from './routes/auth.js';
+import hotelsRouter from './routes/hotels.js';
+import roomsRouter from './routes/rooms.js';
+import usersRouter from './routes/users.js';
 
 
 // config express
@@ -12,6 +16,13 @@ dotenv.config();
 
 // get server port from env config
 const PORT = process.env.SERVER_PORT || 5000
+
+
+// middleware
+app.use('/api/auth', authRouter);
+app.use('/api/hotels', hotelsRouter);
+app.use('/api/rooms', roomsRouter);
+app.use('/api/users', usersRouter);
 
 
 
