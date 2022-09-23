@@ -19,6 +19,7 @@ const PORT = process.env.SERVER_PORT || 5000
 
 
 // middleware
+app.use(express.json());
 app.use('/api/auth', authRouter);
 app.use('/api/hotels', hotelsRouter);
 app.use('/api/rooms', roomsRouter);
