@@ -1,4 +1,5 @@
 import Hotel from "../models/Hotel.js"
+import { createError } from "../utils/error.js";
 
 
 // CREATE
@@ -61,13 +62,13 @@ export const getHotel = async (req, res) => {
 }
 
 // GET ALL
-export const getAllHotel = async (req, res) => {
-
+export const getAllHotel = async (req, res, next) => {
+ 
     try {
         const hotels = await Hotel.find();
         res.status(202).json(hotels);
     } catch (error) {
-        res.status(500).json(error);
+        next(error);
     }
 
 }
