@@ -7,6 +7,7 @@ import authRouter from './routes/auth.js';
 import hotelsRouter from './routes/hotels.js';
 import roomsRouter from './routes/rooms.js';
 import usersRouter from './routes/users.js';
+import cookieParser from 'cookie-parser';
 
 
 // config express
@@ -19,6 +20,7 @@ const PORT = process.env.SERVER_PORT || 5000
 
 
 // middleware
+app.use(cookieParser());
 app.use(express.json());
 app.use('/api/auth', authRouter);
 app.use('/api/hotels', hotelsRouter);
