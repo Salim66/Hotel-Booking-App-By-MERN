@@ -1,5 +1,5 @@
 import express from "express";
-import { countByCity, createHotel, deleteHotel, getAllHotel, getHotel, updateHotel } from "../controllers/HotelController.js";
+import { countByCity, countByType, createHotel, deleteHotel, getAllHotel, getHotel, updateHotel } from "../controllers/HotelController.js";
 import { verifyAdmin } from "../utils/verifyToken.js";
 
 // config routes
@@ -11,7 +11,7 @@ router.delete('/find/:id', verifyAdmin, deleteHotel);
 router.get('/find/:id', getHotel);
 router.get('/', getAllHotel);
 router.get('/countByCity', countByCity);
-router.get('/countByType', getAllHotel);
+router.get('/countByType', countByType);
 
 // exporft default
 export default router;

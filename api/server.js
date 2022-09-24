@@ -8,6 +8,7 @@ import hotelsRouter from './routes/hotels.js';
 import roomsRouter from './routes/rooms.js';
 import usersRouter from './routes/users.js';
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
 
 
 // config express
@@ -20,6 +21,7 @@ const PORT = process.env.SERVER_PORT || 5000
 
 
 // middleware
+app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
 app.use('/api/auth', authRouter);
